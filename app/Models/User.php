@@ -10,7 +10,7 @@ use Mindscms\Entrust\Traits\EntrustUserWithPermissionsTrait;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
-    use HasFactory, Notifiable, EntrustUserWithPermissionsTrait ;
+    use HasFactory, Notifiable, EntrustUserWithPermissionsTrait;
 
     /**
      * The attributes that are mass assignable.
@@ -20,12 +20,15 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $fillable = [
         'first_name',
         'last_name',
+        'username',
         'email',
         'mobile',
         'password',
         'user_image',
         'status',
     ];
+
+    protected $appends = ['full_name'];
 
     /**
      * The attributes that should be hidden for arrays.
@@ -45,4 +48,9 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function getFullNameAttribute(): string
+    {
+        return ucfirst($this->first_name) . ' ' . ucfirst($this->last_name);
+    }
 }
