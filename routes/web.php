@@ -10,9 +10,20 @@ Route::get('/checkout', [FrontendController::class, 'checkout'])->name('frontend
 Route::get('/detail', [FrontendController::class, 'detail'])->name('frontend.detail');
 Route::get('/shop', [FrontendController::class, 'shop'])->name('frontend.shop');
 
-Route::get('/admin/login', [BackendController::class, 'login'])->name('backend.login');
-Route::get('/admin/forgot-password', [BackendController::class, 'forgot_password'])->name('backend.forgot_password');
-Route::get('/admin/index', [BackendController::class, 'index'])->name('backend.index');
+
+Route::group(['prefix' => 'admin' , 'as' => 'admin.'],function(){
+    Route::group(['middleware' => 'guest'],function(){
+        Route::get('/login', [BackendController::class, 'login'])->name('login');
+        Route::get('/forgot-password', [BackendController::class, 'forgot_password'])->name('forgot_password');
+    });
+
+    Route::group(['middleware' => ['roles', 'role:admin|supervisor']], function () {
+        Route::get('/', [BackendController::class, 'index'])->name('index_route');
+        Route::get('/index', [BackendController::class, 'index'])->name('index');
+    });
+});
+
+
 
 Auth::routes(['verify' => true]);
 
