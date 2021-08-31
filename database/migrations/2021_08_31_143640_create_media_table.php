@@ -19,8 +19,8 @@ class CreateMediaTable extends Migration
             $table->string('file_type');
             $table->string('file_size');
             $table->string('file_status');
-            $table->unsignedTinyInteger('file_sort')->default(0);
-            $table->unsignedTinyInteger('mediable_id');
+            $table->unsignedBigInteger('file_sort')->default(0);
+            $table->unsignedBigInteger('mediable_id');
             $table->string('mediable_type');
             $table->timestamps();
         });
