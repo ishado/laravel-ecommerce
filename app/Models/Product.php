@@ -15,14 +15,8 @@ use Illuminate\Database\Eloquent\Relations\MorphToMany;
 class Product extends Model
 {
     use HasFactory, Sluggable;
-
     protected $guarded = [];
 
-    /**
-     * Return the sluggable configuration array for this model.
-     *
-     * @return array
-     */
     public function sluggable(): array
     {
         return [
@@ -32,12 +26,46 @@ class Product extends Model
         ];
     }
 
-    /**
-     * Get the category that owns the Product
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
-    public function category()
+    protected $searchable = [
+        'columns' => [
+            'products.name' => 10,
+            'products.description' => 10,
+        ]
+    ];
+
+    public function status()
+    {
+        return $this->status ? 'Active' : 'Inactive';
+    }
+
+    public function featured()
+    {
+        return $this->featured ? 'Yes' : 'No';
+    }
+
+    public function scopeFeatured($query)
+    {
+        return $query->whereFeatured(true);
+    }
+
+    public function scopeActive($query)
+    {
+        return $query->whereStatus(true);
+    }
+
+    public function scopeHasQuantity($query)
+    {
+        return $query->where('quantity', '>', 0);
+    }
+
+    public function scopeActiveCategory($query)
+    {
+        return $query->whereHas('category', function ($query) {
+            $query->whereStatus(1);
+        });
+    }
+
+    public function category(): belongsTo
     {
         return $this->belongsTo(ProductCategory::class, 'product_category_id', 'id');
     }
@@ -47,8 +75,23 @@ class Product extends Model
         return $this->morphToMany(Tag::class, 'taggable');
     }
 
+    public function firstMedia(): MorphOne
+    {
+        return $this->morphOne(Media::class, 'mediable')->orderBy('file_sort', 'asc');
+    }
+
     public function media(): MorphMany
     {
         return $this->MorphMany(Media::class, 'mediable');
+    }
+
+    public function reviews(): HasMany
+    {
+        return $this->hasMany(ProductReview::class);
+    }
+
+    public function orders(): BelongsToMany
+    {
+        return $this->belongsToMany(Order::class)->withPivot('quantity');
     }
 }
