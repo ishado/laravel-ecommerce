@@ -21,4 +21,20 @@ php artisan route:cache
 php artisan make:model Product -ms
 php artisan make:controller Backend/ProductCategoriesController -r
 php artisan make:provider ViewServiceProvider
+php artisan make:request Backend/ProductCategoryRequest
+
+```
+
+## Packages
+
+```
+
+composer require mindscms/entrust
+composer require cviebrock/eloquent-sluggable
+composer require predis/predis
+composer require barryvdh/laravel-debugbar --dev
+composer require nicolaslopezj/searchable
+composer require intervention/image
+composer require intervention/imagecache
+
 ```
