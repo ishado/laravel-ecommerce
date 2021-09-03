@@ -4,7 +4,9 @@ use App\Http\Controllers\Frontend\FrontendController;
 use App\Http\Controllers\Backend\BackendController;
 use App\Http\Controllers\Backend\ProductCategoriesController;
 use App\Http\Controllers\Backend\ProductController;
+use App\Http\Controllers\Backend\ProductCouponController;
 use App\Http\Controllers\Backend\TagController;
+use App\Models\ProductCoupon;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [FrontendController::class, 'index'])->name('frontend.index');
@@ -29,6 +31,7 @@ Route::group(['prefix' => 'admin' , 'as' => 'admin.'],function(){
         Route::post('/products/remove-image', [ProductController::class, 'remove_image'])->name('products.remove_image');
         Route::resource('products', ProductController::class);
         Route::resource('tags', TagController::class);
+        Route::resource('product_coupons', ProductCouponController::class);
     });
 });
 

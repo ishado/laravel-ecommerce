@@ -23,6 +23,10 @@ php artisan make:controller Backend/ProductCategoriesController -r
 php artisan make:provider ViewServiceProvider
 php artisan make:request Backend/ProductCategoryRequest
 
+php artisan make:model ProductCoupon -ms
+php artisan make:controller Backend/ProductCouponController -r
+
+
 ```
 
 ## Packages
