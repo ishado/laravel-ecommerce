@@ -2,12 +2,15 @@
 
 use App\Http\Controllers\Frontend\FrontendController;
 use App\Http\Controllers\Backend\BackendController;
+use App\Http\Controllers\Backend\CityController;
+use App\Http\Controllers\Backend\CountryController;
 use App\Http\Controllers\Backend\ProductCategoriesController;
 use App\Http\Controllers\Backend\ProductController;
 use App\Http\Controllers\Backend\ProductCouponController;
 use App\Http\Controllers\Backend\ProductReviewController;
 use App\Http\Controllers\Backend\TagController;
 use App\Http\Controllers\Backend\CustomerController;
+use App\Http\Controllers\Backend\StateController;
 use App\Http\Controllers\Backend\SupervisorController;
 use App\Models\ProductCoupon;
 use Illuminate\Support\Facades\Route;
@@ -40,6 +43,9 @@ Route::group(['prefix' => 'admin' , 'as' => 'admin.'],function(){
         Route::resource('customers', CustomerController::class);
         Route::post('/supervisors/remove-image', [SupervisorController::class, 'remove_image'])->name('supervisors.remove_image');
         Route::resource('supervisors', SupervisorController::class);
+        Route::resource('countries', CountryController::class);
+        Route::resource('states', StateController::class);
+        Route::resource('cities', CityController::class);
     });
 });
 
