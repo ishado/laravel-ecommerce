@@ -51,6 +51,7 @@
     </div>
 
     <!--  Modal -->
+    <livewire:frontend.product-modal-shared />
     {{-- @include('partial.frontend.modal') --}}
 
     <!-- Scripts -->
