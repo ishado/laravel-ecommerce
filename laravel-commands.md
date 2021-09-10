@@ -14,6 +14,7 @@ exit
 composer dumpautoload
 
 php artisan route:cache
+php artisan vendor:publish
 
 ```
 
