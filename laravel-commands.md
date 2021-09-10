@@ -25,7 +25,7 @@ php artisan make:request Backend/ProductCategoryRequest
 
 php artisan make:model ProductCoupon -ms
 php artisan make:controller Backend/ProductCouponController -r
-
+php artisan make:livewire Frontend/FeaturedProduct
 
 ```
 

@@ -51,7 +51,7 @@
     </div>
 
     <!--  Modal -->
-    @include('partial.frontend.modal')
+    {{-- @include('partial.frontend.modal') --}}
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
