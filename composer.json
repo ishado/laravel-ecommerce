@@ -16,6 +16,7 @@
         "laravel/ui": "^3.3",
         "livewire/livewire": "^2.5",
         "mindscms/entrust": "^2.5",
+        "mindscms/laravelshoppingcart": "^1.2",
         "nicolaslopezj/searchable": "^1.13",
         "predis/predis": "^1.1"
     },
