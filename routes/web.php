@@ -23,13 +23,13 @@ Route::group(['middleware' => ['roles', 'role:customer']], function () {
 
     Route::get('/orders', [Frontend\CustomerController::class, 'orders'])->name('customer.orders');
 
-    Route::group(['middleware' => 'check_cart'], function () {
+    // Route::group(['middleware' => 'check_cart'], function () {
         Route::get('/checkout', [Frontend\PaymentController::class, 'checkout'])->name('frontend.checkout');
         Route::post('/checkout/payment', [Frontend\PaymentController::class, 'checkout_now'])->name('checkout.payment');
         Route::get('/checkout/{order_id}/cancelled', [Frontend\PaymentController::class, 'cancelled'])->name('checkout.cancel');
         Route::get('/checkout/{order_id}/completed', [Frontend\PaymentController::class, 'completed'])->name('checkout.complete');
         Route::get('/checkout/webhook/{order?}/{env?}', [Frontend\PaymentController::class, 'webhook'])->name('checkout.webhook.ipn');
-    });
+    // });
 });
 
 

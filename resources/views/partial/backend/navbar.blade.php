@@ -11,7 +11,7 @@
 
         <!-- Nav Item - Alerts -->
         <li class="nav-item dropdown no-arrow mx-1">
-            <livewire:backend.navbar.notification-component />
+            {{-- <livewire:backend.navbar.notification-component /> --}}
         </li>
 
         <!-- Nav Item - Messages -->
