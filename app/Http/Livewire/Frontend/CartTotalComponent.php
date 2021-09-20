@@ -22,7 +22,7 @@ class CartTotalComponent extends Component
     {
         $this->cart_subtotal    = getNumbers()->get('subtotal');
         $this->cart_discount    = getNumbers()->get('discount');
-        $this->cart_tax         = getNumbers()->get('tax');
+        $this->cart_tax         = getNumbers()->get('productTaxes');
         $this->cart_shipping    = getNumbers()->get('shipping');
         $this->cart_total       = getNumbers()->get('total');
     }
