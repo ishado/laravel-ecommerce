@@ -75,10 +75,11 @@ class OrderSeeder extends Seeder
                 $taxValue = ($subTotalValue - $discountValue) * 0.14;
                 $totalValue = $subTotalValue - $discountValue + $shippingValue + $taxValue;
                 $order_status = rand(0, 8);
+
                 // Create Order
                 $order = $user->orders()->create([
                     'ref_id' => Str::random(15),
-                    'user_address_id' => $user->addresses()->first(),
+                    'user_address_id' => $faker->numberBetween(1, 2),
                     'shipping_company_id' => 1,
                     'payment_method_id' => 1,
                     'subtotal' => $subTotalValue,
