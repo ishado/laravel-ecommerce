@@ -22,10 +22,10 @@ class PaymentMethodSeeder extends Seeder
             'username'                  => null,
             'password'                  => null,
             'secret'                    => null,
-            'sandbox_merchant_email'    => null,
+            'sandbox_merchant_email'    => 'shado-facilitator@gmail.com',
             'sandbox_username'          => null,
-            'sandbox_password'          => null,
-            'sandbox_secret'            => null,
+            'sandbox_password'          => 'AXFkQdzI_YqFheQppw_IPAyb2OyrZdR7lh1QUJICJ04_RMUDaSEgy7Yxa_GQqgfENRbaymzwrrhjY58y',
+            'sandbox_secret'            => 'EDj9UOPNbiDedz6vZsVOCOZx5BQICUjxNafBGJsAMRuyORXKCI0jPjrLsx1EyQZ1F9LjsIY_xmvIo_lR',
             'sandbox'                   => true,
             'status'                    => true,
         ]);
