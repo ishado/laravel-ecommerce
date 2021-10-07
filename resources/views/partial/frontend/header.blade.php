@@ -55,7 +55,7 @@
                     </li>
                     @else
                     <li class="nav-item dropdown">
-                        {{-- <livewire:frontend.header.notification-component /> --}}
+                        <livewire:frontend.header.notification-component />
                     </li>
 
                     <li class="nav-item dropdown">

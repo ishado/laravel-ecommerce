@@ -7,7 +7,7 @@ use App\Models\Tag;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Arr;
 
-class ProductsTagSeeder extends Seeder
+class ProductsTagsSeeder extends Seeder
 {
     /**
      * Run the database seeds.

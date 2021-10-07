@@ -17,7 +17,9 @@ php artisan route:cache
 php artisan vendor:publish
 
 
+php artisan queue:work
 php artisan websockets:serve
+
 ```
 
 ```

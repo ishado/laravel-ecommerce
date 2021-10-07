@@ -99,6 +99,8 @@ class PaymentController extends Controller
                 'shipping',
             ]);
 
+            // Push Notification to admin and supervisor when new order
+
             User::whereHas('roles', function ($query) {
                 $query->whereIn('name', ['admin', 'supervisor']);
             })->each(function ($admin, $key) use ($order) {

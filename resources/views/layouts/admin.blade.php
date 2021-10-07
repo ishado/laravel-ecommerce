@@ -26,6 +26,7 @@
     <link href="{{ asset('backend/css/sb-admin-2.min.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('backend/vendor/bootstrap-fileinput/css/fileinput.min.css') }}">
     <link rel="stylesheet" href="{{ asset('backend/vendor/summernote/summernote-bs4.min.css') }}">
+    <livewire:styles />
     @yield('style')
 
 </head>
@@ -57,6 +58,7 @@
     </div>
 
     <!-- Scripts -->
+    <livewire:scripts />
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="{{ asset('backend/vendor/jquery-easing/jquery.easing.min.js') }}"></script>
     <script src="{{ asset('backend/js/sb-admin-2.min.js') }}"></script>
